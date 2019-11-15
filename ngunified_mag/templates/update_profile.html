@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="shadow-default">
+            <img src="{{ user.profile.image.url }}" class="img-circle center-block img-responsive" alt="Profile Image" width="304" height="236" />
+            <div class="mx-auto text-center">
+                <p class="Fullname"><span>{{ user.first_name }}</span> | <span>{{ user.last_name }}</span> </p>
+                <p class="email-name">Emai: {{ user.email }}</p>
+                <p class="email-name">Nickname: {{ user.profile.nickname }}</p>
+                <p class="email-name">BIO: {{ user.profile.bio }}</p>
+                <p class="email-name">Gender: {{ user.profile.gender }}</p>
+                <p class="country">South Africa</p>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}

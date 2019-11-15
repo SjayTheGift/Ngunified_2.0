@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+
+<section class="home">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="#">
+                    <img src="{{ user.profile.image.url }}" class="img-rounded center-block img-responsive" alt="Profile Image" width="200" height="200" />
+                    <div class="mx-auto text-center">
+                        <h5 class="email-name">Emai: {{ user.email }}</h5>
+                        <h5 class="email-name">Nickname: {{ user.profile.nickname }}</h5>
+                        <h5 class="email-name">Gender: {{ user.profile.gender }}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                {% if messages %} {% for mess in messages %}
+                <div id="success-alert" class="alert alert-{{ mess.tags }}">
+                    {{ mess }}
+                </div>
+                {% endfor %} {% endif %}
+                <div class="#">
+                    <form class="site-form" action="{% url 'profile_edit' user.profile.id  %}" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <fieldset class="form-group">
+                            <legend class="border-bottom mb-4">Edit Profile</legend>
+                            {{ form|crispy }}
+                        </fieldset>
+                        <div class="form-group">
+                            <button class="btn btn-primary" type="submit">Update</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{%endblock%}
