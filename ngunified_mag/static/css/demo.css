@@ -111,4 +111,8 @@
   border-color: #F73F52;;
 }
 
+.invalid-feedback{
+  color:red !important;
+}
+
 /*# sourceMappingURL=demo.css.map */

@@ -4141,6 +4141,10 @@ blockquote {
   margin-bottom: 30px;
 }
 
+.invalid-feedback{
+  color:red !important;
+}
+
 
 @media (max-width: 1024px){
     .ad img {

@@ -23,12 +23,12 @@ class Profile(models.Model):
     def get_absolute_url(self):
         return reverse('profile_edit', kwargs={'pk': self.pk})
 
-    def save(self):
-        super().save()
+    def save(self, *args, **kwargs):
+        super(Profile, self).save(*args, **kwargs)
 
         img = Image.open(self.image.path)
 
-        if img.height > 300 or img.width > 300:
-            output_size = (300, 300)
+        if img.height > 100 or img.width > 100:
+            output_size = (100, 100)
             img.thumbnail(output_size)
             img.save(self.image.path)

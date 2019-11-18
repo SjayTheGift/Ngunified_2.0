@@ -2,6 +2,9 @@
  * Variable
  */
 /* Colors */
+.invalid-feedback{
+  color:red !important;
+}
 .skin-purple a {
   color: #8e44ad;
 }
