@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load socialaccount %}
 {% load crispy_forms_tags %}
 {% block content %}
 <section class="login first grey">
@@ -19,12 +20,20 @@
 						<div class="title-line">
 							or
 						</div>
-		<a href="#" class="btn btn-social btn-block facebook"><i class="ion-social-facebook"></i> Login with Facebook</a>
+						<a href="{% provider_login_url "facebook" method="oauth2" %}" class="btn btn-social btn-block facebook">
+							<i class="ion-social-facebook"></i>
+							Login with Facebook
+						</a>
+						<a href="{% provider_login_url "google" %}" class="btn btn-social btn-block googleplus">
+								<i class="ion-social-google"></i>
+								Login with Google
+							</a>
 					</form>
-					<a href="#" class="pull-right">Forgot Password?</a>
+					<a href="{% url 'password_reset' %}" class="pull-right">Forgot Password?</a>
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
+{% providers_media_js %}
 {% endblock content %}
